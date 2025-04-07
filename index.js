@@ -20,10 +20,6 @@ app.get("/express", (req, res) => {
 const compiledFunction = pug.compileFile('template.pug');
 
 
-const logReq = function (req,res,next) {
-    console.log("Request Received");
-    next();
-};
 
 
 
