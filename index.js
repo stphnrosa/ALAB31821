@@ -1,43 +1,23 @@
+const express = require("express");
+const pug = require("pug");
+const app = express();
+const port = 3000;
 
-const express=require("express");
-const pug = require('pug');
+//middleware- has accesss to request/response objects 
+app.use(express.static("./styles")); // must use in order to load middleware function
 
-const app=express();
-const port=3000;
-
-
-app.set("view engine", "pug"); // specify where view templates exist and registering the view engine
-
+//Routes
 app.get("/", (req, res) => {
-    res.send("Hello, Express!");
+    res.send("Home");
 });
 
-app.get("/express", (req, res) => {
-    res.send("Creating routes with Express is simple!");
+
+app.get("/about", (req, res) => {
+    res.send("about");
 });
 
-// Compile the source code
-const compiledFunction = pug.compileFile('template.pug');
+//app.listen
 
-
-
-
-
-app.use(express.static("./styles"));
-
-// Render a set of data
-console.log(compiledFunction({
-  name: 'Timothy'
-}));
-// "<p>Timothy's Pug source code!</p>"
-
-// Render another set of data
-console.log(compiledFunction({
-  name: 'Forbes'
-}));
-
-
-
-app.listen(port,() => {
-    console.log(`anything: ${port}`);
-});
+// console.log(`anything: ${port}`);
+// });
+//
